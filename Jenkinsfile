@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: 'git@github.com:iggysav/Test.git'
+                git url: "git@github.com:iggysav/Test.git"
             }
         }
         stage('Checking') {
