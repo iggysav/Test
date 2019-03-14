@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: 'git@github.com:pluhin/sa.it-academy.by.git'
+                git url: 'git@github.com:iggysav/Test.git'
             }
         }
         stage('Checking') {
