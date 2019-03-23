@@ -13,7 +13,7 @@ pipeline {
                 git url: "git@github.com:iggysav/Test.git", branch: "${params.repository_branch}"
             }
         }
-    }
+    
         stage('Run script nmap.sh') {
             steps {
                 sh "nmap.sh ${params.range_ip}"
@@ -54,6 +54,7 @@ pipeline {
                 deleteDir()
             }
         }
+    }
     post {
             success {
                 slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}) ver:${env.BUILD_ID}")
