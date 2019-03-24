@@ -25,7 +25,6 @@ pipeline {
                 nmap -sP ${RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-                         
             }
         }
         stage('Test') {
@@ -42,9 +41,6 @@ pipeline {
     }
         
         
-        
-        
-        
         stage('Git update') {
             when {
                 expression {params.git_update == true}
@@ -55,7 +51,7 @@ pipeline {
                     git config --global user.name "Iggy Sav"
                     git add --all                     
                     git commit -m "New list online hosts"
-                    git push
+                    git push --set-upstream origin nmap
                 '''
             }
         }
@@ -66,7 +62,6 @@ pipeline {
             }
             steps {
                 sh "cat ./online_hosts.txt"
-                    
             }
         }
 
