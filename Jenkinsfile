@@ -16,7 +16,7 @@ pipeline {
     
         stage('Run script nmap.sh') {
             steps {
-                sh "./nmap.sh ${params.range_ip}"
+                sh "sh ./nmap.sh ${params.range_ip}"
                 sh "${params.result} = cat ./online_hosts.txt"
             }
         }
