@@ -25,8 +25,7 @@ pipeline {
                 nmap -sP ${RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-              //  sh """${RESULT} = 1234567890"""
-                //sh """echo ${RESULT}"""
+                         
             }
         }
         stage('Test') {
@@ -52,6 +51,8 @@ pipeline {
             }
             steps {
                 sh '''
+                    git config --global user.email "igor.savastsiuk@it-academy.by"
+                    git config --global user.name "Iggy Sav"
                     git add --all                     
                     git commit -m "New list online hosts"
                     git push
