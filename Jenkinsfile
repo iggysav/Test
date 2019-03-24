@@ -14,9 +14,13 @@ pipeline {
             }
         }
     
-        stage('Run script nmap.sh') {
+        stage('Run script') {
             steps {
-                sh "sh ./nmap.sh ${params.range_ip}"
+                sh '''
+                sudo yum install nmap -y 
+                sudo nmap -sP $1 >> online_hosts.txt
+                sudo yum remove nmap -y 
+                '''
                 sh "${params.result} = cat ./online_hosts.txt"
             }
         }
