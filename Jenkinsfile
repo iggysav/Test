@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: "https://github.com/iggysav/Test.git", branch: "nmap"
+                git url: "git@github.com:iggysav/Test.git", branch: "nmap"
             }
         }
     
