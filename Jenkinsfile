@@ -26,7 +26,7 @@ pipeline {
                 sudo apt-get remove nmap -y 
                 '''
                sh "${RESULT} = cat online_hosts.txt"
-               // sh "cat online_hosts.txt"
+                sh "echo ${RESULT}"
             }
         }
         stage('Git update') {
@@ -67,7 +67,7 @@ pipeline {
     post {
             success {
                 slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}) ver:${env.BUILD_ID}")
-                slackSend (color: '#00FF00', message: "${params.result}")
+                slackSend (color: '#00FF00', message: "${env.RESULT}")
             }
             failure {
                 slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
