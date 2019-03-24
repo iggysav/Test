@@ -18,10 +18,10 @@ pipeline {
             steps {
                 sh '''
                 sudo apt-get install nmap -y 
-                nmap -sP $1 >> online_hosts.txt
+                nmap -sP ${params.range_ip} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-                sh "${params.result} = cat ./online_hosts.txt"
+                sh "${params.result} = cat online_hosts.txt"
             }
         }
         stage('Git update') {
