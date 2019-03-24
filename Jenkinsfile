@@ -25,8 +25,8 @@ pipeline {
                 nmap -sP ${RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-                sh "${RESULT} = "1234567890""
-                sh "echo ${RESULT}"
+                sh """${RESULT} = 1234567890"""
+                sh """echo ${RESULT}"""
             }
         }
         stage('Git update') {
