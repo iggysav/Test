@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { node { label 'slave02' } }
     parameters {
         
         string(name: 'range_ip', defaultValue: '192.168.43.0/24', description: 'Check ip-range (x.x.x.x/xx)')
