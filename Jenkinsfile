@@ -48,10 +48,10 @@ pipeline {
             steps {
                 sh '''
                     git config --global user.email "igor.savastsiuk@it-academy.by"
-                    git config --global user.name "Iggy Sav"
+                    git config --global user.name "Iggysav"
                     git add --all                     
-                    git commit -m "New list online hosts"
-                    git push origin nmap
+                    git commit -m \"New list online hosts\"
+                    git push origin nmap --force
                 '''
             }
         }
