@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                 sudo yum install nmap -y 
-                sudo nmap -sP $1 >> online_hosts.txt
+                nmap -sP $1 >> online_hosts.txt
                 sudo yum remove nmap -y 
                 '''
                 sh "${params.result} = cat ./online_hosts.txt"
