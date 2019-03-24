@@ -51,7 +51,7 @@ pipeline {
                     git config --global user.name "Iggy Sav"
                     git add --all                     
                     git commit -m "New list online hosts"
-                    git push
+                    git push origin nmap
                 '''
             }
         }
