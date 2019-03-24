@@ -7,3 +7,14 @@ Host is up (0.00073s latency).
 Nmap scan report for DevOps (192.168.43.214)
 Host is up (0.0010s latency).
 Nmap done: 256 IP addresses (3 hosts up) scanned in 6.57 seconds
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2019-03-24 19:46 +03
+Nmap scan report for 192.168.43.1
+Host is up (0.040s latency).
+Nmap scan report for 192.168.43.45
+Host is up (0.0047s latency).
+Nmap scan report for 192.168.43.115
+Host is up (0.0037s latency).
+Nmap scan report for DevOps (192.168.43.214)
+Host is up (0.00076s latency).
+Nmap done: 256 IP addresses (4 hosts up) scanned in 3.63 seconds
