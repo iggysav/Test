@@ -6,6 +6,9 @@ pipeline {
         booleanParam(name: 'git_update', defaultValue: true, description: 'Do we need update git branche?')
         text(name: 'result', defaultValue:'')
     }
+    environment {          
+        def RANGE = "${params.range_ip}"
+    }
 
     stages {
         stage('Clone') {
@@ -18,7 +21,7 @@ pipeline {
             steps {
                 sh '''
                 sudo apt-get install nmap -y 
-                nmap -sP ${params.range_ip} >> online_hosts.txt
+                nmap -sP ${env.RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
                 sh "${params.result} = cat online_hosts.txt"
