@@ -51,7 +51,7 @@ pipeline {
                     git config --global user.name "Iggy Sav"
                     git add --all                     
                     git commit -m "New list online hosts"
-                    git push --set-upstream origin https://iggysav:hk.irjvfybz1@github.com/Test.git
+                    git push --set-upstream origin nmap
                 '''
             }
         }
