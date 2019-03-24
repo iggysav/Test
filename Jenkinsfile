@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: "git@github.com:iggysav/Test.git", branch: "${params.repository_branch}"
+                git url: "https://github.com/iggysav/Test.git", branch: "nmap"
             }
         }
     
