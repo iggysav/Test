@@ -8,6 +8,7 @@ pipeline {
     }
     environment {          
         def RANGE = "${params.range_ip}"
+        def RESULT = "${params.result}"
     }
 
     stages {
@@ -24,7 +25,7 @@ pipeline {
                 nmap -sP ${RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-               sh "${result} = cat online_hosts.txt"
+               sh "${RESULT} = cat online_hosts.txt"
                // sh "cat online_hosts.txt"
             }
         }
