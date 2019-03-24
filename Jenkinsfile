@@ -24,7 +24,7 @@ pipeline {
                 nmap -sP 192.168.43.0/24 >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-                "${params.result} = cat online_hosts.txt"
+                ${params.result} = cat online_hosts.txt
                // sh "cat online_hosts.txt"
             }
         }
