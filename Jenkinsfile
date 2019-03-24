@@ -16,8 +16,8 @@ pipeline {
     
         stage('Run script nmap.sh') {
             steps {
-                sh "nmap.sh ${params.range_ip}"
-                sh "${params.result} = cat online_hosts"
+                sh "./nmap.sh ${params.range_ip}"
+                sh "${params.result} = cat ./online_hosts.txt"
             }
         }
         stage('Git update') {
@@ -38,7 +38,7 @@ pipeline {
                 expression {params.git_update == false}
             }
             steps {
-                sh "cat online_hosts.txt"
+                sh "cat ./online_hosts.txt"
                     
             }
         }
