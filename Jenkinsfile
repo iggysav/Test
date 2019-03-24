@@ -4,7 +4,7 @@ pipeline {
         
         string(name: 'range_ip', defaultValue: '192.168.43.0/24', description: 'Check ip-range (x.x.x.x/xx)')
         booleanParam(name: 'git_update', defaultValue: true, description: 'Do we need update git branche?')
-        string(name: 'result', defaultValue:'')
+        text(name: 'result', defaultValue:'')
     }
     environment {          
         def RANGE = "${params.range_ip}"
@@ -25,10 +25,27 @@ pipeline {
                 nmap -sP ${RANGE} >> online_hosts.txt
                 sudo apt-get remove nmap -y 
                 '''
-                sh """${RESULT} = 1234567890"""
-                sh """echo ${RESULT}"""
+              //  sh """${RESULT} = 1234567890"""
+                //sh """echo ${RESULT}"""
             }
         }
+        stage('Test') {
+            steps {
+              script {
+            RESULT = sh(returnStdout: true, script: 'echo Privet123')
+        }
+      }
+    }
+        stage('output_version') {
+            steps {
+            echo "awesomeVersion: ${RESULT}"
+      }
+    }
+        
+        
+        
+        
+        
         stage('Git update') {
             when {
                 expression {params.git_update == true}
