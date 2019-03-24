@@ -1,0 +1,9 @@
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2019-03-24 19:19 +03
+Nmap scan report for 192.168.43.45
+Host is up (0.0047s latency).
+Nmap scan report for 192.168.43.115
+Host is up (0.0023s latency).
+Nmap scan report for DevOps (192.168.43.214)
+Host is up (0.00072s latency).
+Nmap done: 256 IP addresses (3 hosts up) scanned in 6.87 seconds
