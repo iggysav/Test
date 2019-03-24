@@ -32,7 +32,7 @@ pipeline {
         stage('Test') {
             steps {
               script {
-            RESULT = sh(returnStdout: true, script: 'echo Privet123')
+            RESULT = sh(returnStdout: true, script: 'cat online_hosts.txt')
         }
       }
     }
