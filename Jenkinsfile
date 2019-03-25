@@ -2,7 +2,7 @@ pipeline {
     agent { node { label 'slave02' } }
     parameters {
         
-        string(name: 'range_ip', defaultValue: '192.168.43.0/24', description: 'Check ip-range (x.x.x.x/xx)')
+        string(name: 'range_ip', defaultValue: '192.168.253.0/24', description: 'Check ip-range (x.x.x.x/xx)')
         booleanParam(name: 'git_update', defaultValue: true, description: 'Do we need update git branche?')
        // text(name: 'result', defaultValue:'')
     }
