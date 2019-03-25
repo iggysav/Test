@@ -27,14 +27,14 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('Declaring Variable') {
             steps {
               script {
             RESULT = sh(returnStdout: true, script: 'cat online_hosts.txt')
         }
       }
     }
-        stage('output_version') {
+        stage('Test output') {
             steps {
             echo "Result: ${RESULT}"
       }
