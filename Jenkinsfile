@@ -1,30 +1,37 @@
 pipeline {
-    agent any
+    environment {
+        registry = "iggysav/test01"
+    }
+    agent { node { label 'slave02' } }
     stages {
-        stage('Clone') {
+        stage('Cloning Git') {
             steps {
-                git url: "https://github.com/iggysav/Test.git"
+               git 'git@github.com:iggysav/test01.git' 
             }
         }
-        stage('Checking') {
+        stage('Building image') {
             steps {
-                sh "ls -l"
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    
+                }
             }
         }
-        stage('Packing project') {
+        stage('Push to DockerHub') {
             steps {
-                sh '''
-                tar -zcvf /tmp/package.tar.gz  ./
-                '''
-                deleteDir()
-                sh "mv /tmp/package.tar.gz  ./"
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+                        dockerImage.push()
+                    }
+                }
+                
             }
         }
-        stage('Packing test') {
+        
+        stage('Remove Unused docker image') {
             steps {
-                sh "ls -l"
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
-        }        
-    
+        }
     }
 }
